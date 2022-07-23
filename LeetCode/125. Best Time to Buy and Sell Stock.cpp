@@ -1,4 +1,4 @@
-class Solution {
+class Solution  {
 public:
     int maxProfit(vector<int>& a) {
         int n=a.size();
