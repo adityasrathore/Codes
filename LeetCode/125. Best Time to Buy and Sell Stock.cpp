@@ -7,6 +7,7 @@ public:
         
         for(int i=0;i<n;i++){
             m=min(m,a[i]);
+            
             // if(a[i]-m>maxprofit)
             //     maxprofit=a[i]-m;
             maxprofit=max(maxprofit,a[i]-m);
