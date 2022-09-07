@@ -9,7 +9,7 @@ Solution 1
             return false;
         return true;
 Solution 2
-                map <char,int> mp1;
+        map <char,int> mp1;
         map <char,int> mp2;
         int n1=s.length();
         int n2=t.length();
