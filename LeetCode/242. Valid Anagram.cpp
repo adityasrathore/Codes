@@ -25,3 +25,16 @@ Solution 2
         }
         return true;
 Solution 3
+        unordered_map <int,int> mp;
+        int n1=s.length(),n2=t.length();
+        if(n1!=n2)
+            return false;
+        for(int i=0;i<n1;i++){
+            mp[s[i]]++;
+            mp[t[i]]--;
+        }
+        for(auto i=mp.begin();i!=mp.end();i++){
+            if(i->second!=0)
+                return false;
+        }
+        return true;
