@@ -24,3 +24,4 @@ Solution 2
                 return false;
         }
         return true;
+Solution 3
