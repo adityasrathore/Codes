@@ -6,7 +6,6 @@ public:
         
         for(int i=0;i<n;i++)
             mp[s[i]]++;
-        
         if(mp.size()==26)
             return true;
         
