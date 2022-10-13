@@ -9,7 +9,7 @@ public:
         q.push(root);
         q.push(NULL);
         while(!q.empty()){
-            TreeNode *temp=q.front();
+            TreeNode *temp= q.front();
             
             if(temp==NULL){
                 v1.push_back(1001);
