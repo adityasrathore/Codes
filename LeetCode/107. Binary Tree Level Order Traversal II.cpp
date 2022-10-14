@@ -34,7 +34,7 @@ public:
                 v.push_back(t);
                 t.clear();
             }
-        reverse(v.begin() ,v.end());
+        reverse(v.begin(),v.end());
         return v;
     }
 };
