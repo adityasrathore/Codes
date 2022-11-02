@@ -5,7 +5,7 @@ public:
         vector <int> v2(26,0);
         int n=words.size();
         for(int i=0;i<words[0].size();i++)
-            v1[words[0].at(i)-'a']++;
+            v1[words[0].at(i)-'a']++ ;
 
         for(int i=1;i<n;i++){
             for(int j=0;j<words[i].size();j++)
