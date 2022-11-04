@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int t[1001][1001];
+     int t[1001][1001];
     string SCS(string &x,string &y,int m,int n){
     for(int i=0;i<m+1;i++){
         for(int j=0;j<n+1;j++){
