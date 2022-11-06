@@ -8,7 +8,7 @@ public:
                 idx=i;
                 break;
             }
-            if(i ==n-1)
+            if(i==n-1)
                 return word;
         }
         reverse(word.begin(),word.begin()+idx+1);
