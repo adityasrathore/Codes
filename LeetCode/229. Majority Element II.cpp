@@ -6,6 +6,7 @@ public:
         vector <int> v;
         for(int i=0;i<n;i++)
             mp[nums[i]]++;
+        
         for(auto i:mp)
             if(i.second>n/3)
                 v.push_back(i.first);
