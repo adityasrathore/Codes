@@ -19,3 +19,18 @@ public:
         return count;
     }
 };2186. Minimum Number of Steps to Make Two Strings Anagram II
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        vector <int> v(26,0);
+        for(char i:s)
+            v[i-'a']++;
+        for(char i:t)
+            v[i-'a']--;
+        
+        int count=0;
+        for(int i=0;i<26;i++)
+            count+=abs(v[i]);
+        return count;
+    }
+};
