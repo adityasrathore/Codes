@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool validPath(int n, vector<vector<int>>& edges, int start, int end) {
+    bool validPath(int n, vector<vector<int>>& edges, int start, int end)  {
         unordered_map<int,vector<int>> graph; 
         for(auto e : edges) {
             graph[e[0]].push_back(e[1]);
