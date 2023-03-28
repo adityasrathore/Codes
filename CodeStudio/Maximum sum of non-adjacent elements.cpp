@@ -32,5 +32,21 @@ int maximumNonAdjacentSum(vector<int> &nums){
     return dp[n-1];
 }
 
-
+int maximumNonAdjacentSum(vector<int> &nums){
+    int n=nums.size();
+    int prev1=nums[0];
+    int prev2=0;
+    int curr;
+    for(int i=1;i<n;i++){
+        int pick=nums[i];
+        if(i>=2)
+            pick+=prev2;
+        int npick=0+prev1;
+        curr=max(pick,npick);
+        prev2=prev1;
+        prev1=curr;
+        
+    }
+    return prev1;
+}
 
