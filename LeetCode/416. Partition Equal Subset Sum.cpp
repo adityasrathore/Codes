@@ -30,4 +30,29 @@ public:
     }
 };
 
-
+class Solution {
+public:
+    int solve(int idx,int target,vector<int>& nums,vector<vector<int>> &dp){
+        if(target==0)
+            return true;
+        if(idx==0)
+            return nums[0]==target;
+        if(dp[idx][target]!=-1)
+            return dp[idx][target];
+        bool notPick=solve(idx-1,target,nums,dp);
+        bool pick=false;
+        if(target>=nums[idx])
+            pick=solve(idx-1,target-nums[idx],nums,dp);
+        return dp[idx][target]=pick|notPick;
+            
+    }
+    bool canPartition(vector<int>& nums) {
+        int n=nums.size();
+        int target=accumulate(nums.begin(),nums.end(),0);
+        if(target%2==1){
+            return false;
+        }
+        vector<vector<int>> dp(n,vector<int>(target/2+1,-1));
+        return solve(n-1,target/2,nums,dp);
+    }
+};
