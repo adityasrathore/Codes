@@ -15,7 +15,7 @@ public:
         return true;
     }
     int shipWithinDays(vector<int>& weights, int days) {
-        int s=*max_element(weights.begin(),weights.end());
+        int s= *max_element(weights.begin(),weights.end());
         int e=accumulate(weights.begin(),weights.end(),0);
         int ans=0;
         while(s<=e){
