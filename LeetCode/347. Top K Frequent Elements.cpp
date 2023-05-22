@@ -12,10 +12,11 @@ public:
             if(minh.size()>k)
                 minh.pop();
         }
-        while(minh.size()>0){
+        while(!minh.empty()){
             v.push_back(minh.top().second);
             minh.pop();
         }
+        
         return v;
     }
 };
