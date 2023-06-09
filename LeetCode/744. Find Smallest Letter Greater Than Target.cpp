@@ -6,9 +6,7 @@ public:
         char ans=letters[0];
         while(i<=j){
             int mid=i+(j-i)/2;
-            if(letters[mid]==target)
-                i=mid+1;
-            else if(letters[mid]>target){
+            if(letters[mid]>target){
                 ans=letters[mid];
                 j=mid-1;
             }
