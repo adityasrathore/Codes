@@ -1,5 +1,25 @@
 class Solution {
 public:
+    int solve(int idx,int rod1,int rod2,vector<int>& rods){
+        if(idx == rods.size()){
+            if(rod1 == rod2)
+                return rod1;
+            return 0;
+        }
+        int m1 = solve(idx+1,rod1+rods[idx],rod2,rods);
+        int m2 = solve(idx+1,rod1,rod2+rods[idx],rods);
+        int m3 = solve(idx+1,rod1,rod2,rods);
+        return max(m1,max(m2,m3));
+    }
+    int tallestBillboard(vector<int>& rods) {
+        return solve(0,0,0,rods);
+    }
+};
+
+
+
+class Solution {
+public:
     int solve(int idx,int rod,vector<int>& rods,vector<vector<int>> &dp){
         if(rods.size() == idx){
             if(rod == 0)
