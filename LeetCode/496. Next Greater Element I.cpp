@@ -27,3 +27,29 @@ public:
     return a;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size();
+        int n = nums2.size();
+        vector<int> v(m);
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(nums1[i] == nums2[j]){
+                    while(j<n){
+                        if(nums1[i] < nums2[j]){
+                            v[i] = nums2[j];
+                            break;
+                        }
+                        else
+                            v[i] = -1;
+                        j++;
+                    }
+                }
+            }
+        }
+        return v;
+    }
+};
