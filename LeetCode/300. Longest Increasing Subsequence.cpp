@@ -1,5 +1,3 @@
-Recursion
-
 class Solution {
 public:
     int solve(int idx,int prev,vector<int>& nums){
@@ -16,7 +14,6 @@ public:
         return solve(0,-1,nums);
     }
 };
-Recursion + Storing = Memoization
 
 class Solution {
 public:
@@ -37,7 +34,6 @@ public:
         return solve(0,-1,nums,dp);
     }
 };
-Tabulation BotoomUp
 
  class Solution {
 public:
