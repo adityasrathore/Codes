@@ -2,11 +2,11 @@ NEW DP
 class Solution {
 public:
     int solve(int idx1,int idx2,string &text1, string &text2,vector<vector<int>> &dp){
-        if(idx1<0 || idx2<0)
+        if(idx1 == 0 || idx2 == 0)
             return 0;
         if(dp[idx1][idx2] != -1)
             return dp[idx1][idx2];
-        if(text1[idx1] == text2[idx2])
+        if(text1[idx1-1] == text2[idx2-1])
             dp[idx1][idx2] = 1+solve(idx1-1,idx2-1,text1,text2,dp);
         else
             dp[idx1][idx2] = max(solve(idx1,idx2-1,text1,text2,dp),
@@ -16,8 +16,27 @@ public:
     int longestCommonSubsequence(string text1, string text2) {
         int m = text1.size();
         int n = text2.size();
-        vector<vector<int>> dp(m,vector<int>(n,-1));
-        return solve(m-1,n-1,text1,text2,dp);
+        vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
+        return solve(m,n,text1,text2,dp);
+    }
+};
+
+class Solution {
+public:
+    int longestCommonSubsequence(string text1, string text2) {
+        int m = text1.size();
+        int n = text2.size();
+        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<=n;j++){
+                if(text1[i-1] == text2[j-1]) // Peche wala dekh rhe hai shifting mai yad rakhna
+                    dp[i][j] = 1 + dp[i-1][j-1];
+                else
+                    dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+        return dp[m][n];
     }
 };
 
