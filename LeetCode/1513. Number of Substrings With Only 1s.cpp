@@ -19,3 +19,5 @@ public:
         return ans;
     }
 };
+
+https://leetcode.com/problems/number-of-substrings-with-only-1s/discuss/3730817/Q1513-Accepted-C%2B%2B-Sliding-Win-and-Counting-or-Easiest-Method
