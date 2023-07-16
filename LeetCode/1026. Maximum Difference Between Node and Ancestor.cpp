@@ -5,7 +5,8 @@ public:
     
     void getMax(TreeNode *root, int mx, int mi){
         
-        if(root == NULL) return;
+        if(root == NULL) 
+            return;
        
         mx = max(mx, root->val);
         mi = min(mi, root->val);
