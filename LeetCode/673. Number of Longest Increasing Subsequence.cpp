@@ -19,10 +19,10 @@ public:
             maxLen = max(maxLen,dp[i]);
         }
         
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++)
             if(dp[i] == maxLen)
                 ans += count[i];
-        }
+        
         return ans;
     }
 };
