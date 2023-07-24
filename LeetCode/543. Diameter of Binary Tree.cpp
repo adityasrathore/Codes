@@ -32,3 +32,29 @@ public:
         return optDiameter(root).diameter;
     }
 };
+
+
+-------------------------------------------------------------
+
+
+class Solution {
+public:
+    int height(TreeNode* root){
+        if(root == NULL)
+            return 0;
+        int left = height(root->left);
+        int right = height(root->right);
+        return max(left,right)+1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(root == NULL)
+            return 0;
+        int left = height(root->left);
+        int right = height(root->right);
+        int m = 0;
+        m = max(m,left+right);
+        int m1 = diameterOfBinaryTree(root->left);
+        int m2 = diameterOfBinaryTree(root->right);
+        return m;
+    }
+};
