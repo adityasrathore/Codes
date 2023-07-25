@@ -1,5 +1,27 @@
 class Solution {
 public:
+    int solve(TreeNode* root,int &m){
+        if(root == NULL)
+            return 0;
+        int l = solve(root->left,m);
+        int r = solve(root->right,m);
+        m = max(m,l+r);
+        return 1 + max(l,r);
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(root == NULL)
+            return 0;
+        int m = 0;
+        int x = solve(root,m);
+        return m;
+    }
+};
+
+---------------------------------
+
+
+class Solution {
+public:
     int height(TreeNode *root){
         if(root==NULL)
             return 0;
