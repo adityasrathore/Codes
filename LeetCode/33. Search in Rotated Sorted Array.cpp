@@ -39,3 +39,39 @@ public:
         return max(left,right);
     }
 };
+
+class Solution {
+public:
+    int binarySearch(vector<int>& nums,int s,int e,int key){
+        while(s<=e){
+            int mid=s+(e-s)/2;
+            if(nums[mid]==key)
+                return mid;
+            else if(nums[mid]>key)
+                e=mid-1;
+            else
+                s=mid+1;
+        }
+        return -1;
+    }
+    int search(vector<int>& nums, int target) {
+        int n=nums.size();
+        int s=0;
+        int e=n-1;
+        int idx;
+        while(s<=e){
+            int mid=s+(e-s)/2;
+            if(nums[mid]<=nums[(mid+1)%n] && nums[mid]<=nums[(mid-1+n)%n]){
+                idx=mid;
+                break;
+            }
+            else if(nums[0]<=nums[mid])
+                s=mid+1;
+            else
+                e=mid-1;
+        }
+        int left=binarySearch(nums,0,idx-1,target);
+        int right=binarySearch(nums,idx,n-1,target);
+        return left!=-1 ? left:right;
+    }
+};
