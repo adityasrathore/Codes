@@ -1,3 +1,5 @@
+DFS 
+
 class Solution
 {
 	public:
@@ -23,6 +25,47 @@ class Solution
 	        s.pop();
 	    }
 
+	    return v;
+	}
+};
+
+----------------------------------------------
+
+BFS Kahn's
+
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution
+{
+	public:
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]){
+	    queue<int> q;
+	    int inDeg[V] = {0};
+	    for(int i=0;i<V;i++){
+	        for(auto j: adj[i]){
+	            inDeg[j]++;
+	        }
+	    }
+	    for(int i=0;i<V;i++){
+	        if(inDeg[i] == 0)
+	            q.push(i);
+	    }
+	    vector<int> v;
+	    while(!q.empty()){
+	        int node = q.front();
+	        q.pop();
+	        v.push_back(node);
+	        	        
+	        for(auto i:adj[node]){
+	            inDeg[i]--;
+	            if(inDeg[i] == 0)
+	                q.push(i);
+	        }
+	    }
 	    return v;
 	}
 };
