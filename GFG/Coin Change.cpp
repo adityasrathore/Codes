@@ -19,3 +19,34 @@ class Solution {
         return solve(N-1,coins,N,sum,dp);
     }
 };
+
+
+
+-----------------------------
+
+
+
+class Solution {
+  public:
+    long long int count(int coins[], int n, int sum) {
+        vector<vector<long long>> dp(n,vector<long long>(sum+1,0));
+        for(int i=0;i<n;i++){
+            dp[i][0] = 1;
+        }
+        for(int j=1;j<=sum;j++){
+            if(j%coins[0] == 0)
+                dp[0][j] = 1;
+        }
+        
+        for(int i=1;i<n;i++){
+            for(int j=1;j<=sum;j++){
+                long long notTake = dp[i-1][j];
+                long long take = 0;
+                if(coins[i] <= j)
+                    take = dp[i][j-coins[i]];
+                dp[i][j] = take + notTake;
+            }
+        }
+        return dp[n-1][sum];
+    }
+};
