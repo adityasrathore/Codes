@@ -21,3 +21,26 @@ public:
         return solve(N-1,N,W,val,wt,dp);
     }
 };
+
+
+class Solution{
+public:
+    int knapSack(int N, int W, int val[], int wt[]){
+        vector<vector<int>> dp(N,vector<int>(W+1,0));
+      
+        for(int j=wt[0];j<=W;j++){
+            dp[0][j] = (j/wt[0])*val[0];
+        }
+        
+        for(int i=1;i<N;i++){
+            for(int j=1;j<=W;j++){
+                int notTake = dp[i-1][j];
+                int take = INT_MIN;
+                if(j >= wt[i])
+                    take = val[i] + dp[i][j-wt[i]];
+                dp[i][j] = max(take,notTake);
+            }
+        }
+        return dp[N-1][W];
+    }
+};
