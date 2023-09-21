@@ -33,8 +33,8 @@ Solution 3
             mp[s[i]]++;
             mp[t[i]]--;
         }
-        for(auto i=mp.begin();i!=mp.end();i++){
-            if(i->second!=0)
+        for(auto i:mp){
+            if(i.second!=0)
                 return false;
         }
         return true;
