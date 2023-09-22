@@ -1,3 +1,31 @@
+O(n^2)
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        int n = strs.size();
+        unordered_map <string,vector<string>> mp;
+        vector<vector<string>> ans;
+        for(int i=0;i<n;i++){
+            vector<int> v(26,0);
+            for(int j=0;j<strs[i].size();j++)
+                v[strs[i][j]-'a']++;
+        
+            string t = "";
+            for(int k=0;k<26;k++)
+                t += to_string(k+'a') + to_string(v[k]);
+            
+            mp[t].push_back(strs[i]);
+        }
+        for(auto i:mp)
+            ans.push_back(i.second);
+        
+        return ans;
+    }
+};
+
+-------------------------------------------------
+O(n^2 * logn)
+
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
