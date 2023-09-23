@@ -15,6 +15,8 @@ public:
     }
 };
 
+------------------------------------
+
 class Solution {
 public:
     int solve(int idx,int prev,vector<int>& nums,vector<vector<int>> &dp){
@@ -35,6 +37,7 @@ public:
     }
 };
 
+------------------------------------------------
  class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
@@ -50,7 +53,7 @@ public:
         return dp[0][0];
     }
 };
-
+------------------------------------------------
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
@@ -65,8 +68,7 @@ public:
         return *max_element(dp.begin(),dp.end());
     }
 };
-
-
+-----------------------------------------------
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
