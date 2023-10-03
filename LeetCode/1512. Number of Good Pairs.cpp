@@ -8,7 +8,7 @@ public:
         int goodpairs=0;
         for(auto i=mp.begin();i!=mp.end();i++){
             if(i->second >=2)
-                goodpairs+=((i->second)*(i->second-1))/2;
+                goodpairs+=((i->second)*(i->second-1))/2; // math
         }
         return goodpairs;
     }
