@@ -20,3 +20,32 @@ public:
         return v;
     }
 };
+
+
+
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map <int,int> mp;
+        int n = nums.size();
+        for(auto i:nums)
+            mp[i]++;
+        vector<vector<int>> v(n+1);
+        for(auto i:mp){
+            if(i.second > 0)
+                v[i.second].push_back(i.first);
+        }
+
+        vector<int> ans;
+        for(int i=n;i>0;i--){
+            int j = v[i].size();
+            while(j-- && k > 0){
+                ans.push_back(v[i][j]);
+                k--;
+            }
+            
+        }
+
+        return ans;
+    }
+};
