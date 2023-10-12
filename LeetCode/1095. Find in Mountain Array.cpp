@@ -42,3 +42,8 @@ public:
         return left>=0? left:right;
     }
 };
+
+
+
+
+1095. Find in Mountain Array
