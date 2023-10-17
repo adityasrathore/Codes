@@ -45,6 +45,28 @@ public:
         return solve(0,prices,0,dp);
     }
 };
+
+class Solution {
+public:
+    int solve(int idx,int opt,vector<int>& prices,vector<vector<int>> &dp){
+        if(idx == prices.size())    
+            return 0;
+        int profit = 0;
+        if(dp[idx][opt] != -1)
+            return dp[idx][opt];
+        if(opt)
+            profit = max(-prices[idx]+solve(idx+1,0,prices,dp),solve(idx+1,1,prices,dp));
+        else
+            profit = max(+prices[idx]+solve(idx+1,1,prices,dp),solve(idx+1,0,prices,dp));
+        return dp[idx][opt] = profit;
+    }
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        vector<vector<int>> dp(n+1,vector<int>(2,-1));
+        return solve(0,1,prices,dp);
+    }
+};
+
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -66,3 +88,5 @@ public:
         return dp[0][0];
     }
 };
+
+
