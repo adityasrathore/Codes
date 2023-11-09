@@ -17,3 +17,6 @@ public:
         return ans;
     }
 };
+
+
+1759. Count Number of Homogenous Substrings
