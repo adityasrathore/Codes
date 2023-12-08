@@ -12,3 +12,6 @@ public:
 		return ans;
 	}
 };
+
+
+606. Construct String from Binary Tree
