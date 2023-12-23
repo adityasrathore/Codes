@@ -20,3 +20,5 @@ public:
         return false;
     }
 };
+
+1496. Path Crossing
