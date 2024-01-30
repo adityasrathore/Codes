@@ -29,3 +29,22 @@ public:
         return t[n];
     }
 };
+
+
+class Solution {
+public:
+    int fib(int n) {
+        if(n <= 1)
+            return n;
+        int one = 0;
+        int two = 1;
+        int temp;
+
+        for(int i=2;i<=n;i++){
+            temp = one + two;
+            one = two;
+            two = temp;
+        }
+        return temp;
+    }
+};
